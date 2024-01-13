@@ -41,3 +41,24 @@
     outline-style:solid;
     box-shadow: 0 0 0 4px #5a01a7;
 }
+
+
+@media only screen and (max-width: 768px) {
+  .app-bar {
+    padding: 8px;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .butt {
+    height: 30px;
+    font-size: 14px;
+  }
+}

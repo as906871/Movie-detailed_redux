@@ -257,4 +257,72 @@ i.material-icons {
 }
 
 
-  
+@media only screen and (max-width: 768px) {
+  .hero-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main-container {
+    width: 90%;
+  }
+
+  .poster-container {
+    width: 100%;
+  }
+
+  .poster {
+    width: 100%;
+    height: auto;
+  }
+
+  .ticket-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .ticket__content {
+    text-align: center;
+  }
+
+  .pagination {
+    margin-top: 20px;
+  }
+
+  .pagination button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .hero {
+    height: 300px; /* Adjust as needed */
+  }
+
+  .mv-single-hero {
+    height: 400px; /* Adjust as needed */
+  }
+
+  .center-content {
+    margin-top: 100px; /* Adjust as needed */
+  }
+
+  #content_hero .container .blurb {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  #content_hero .container .blurb h1 {
+    font-size: 32px;
+  }
+
+  #content_hero .container .blurb p {
+    font-size: 16px;
+  }
+
+  #content_hero .container .blurb .certificate {
+    font-size: 12px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+}

@@ -165,3 +165,45 @@
   background-color: #45a049;
 }
 
+
+
+@media only screen and (max-width: 600px) {
+	.hero-container {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	.main-container {
+	  width: 100%;
+	  margin-bottom: 20px;
+	}
+  
+	.poster-container {
+	  width: 100%;
+	}
+  
+	.poster {
+	  width: 100%;
+	}
+  
+	.ticket-container {
+	  width: 100%;
+	  background-color: #f9f9f9;
+	  padding: 10px;
+	  border-radius: 5px;
+	}
+  
+	.ticket__content {
+	  text-align: center;
+	}
+  
+	.pagination {
+	  margin-top: 20px;
+	}
+  
+	.pagination button {
+	  font-size: 14px;
+	  padding: 5px 10px;
+	}
+  }
