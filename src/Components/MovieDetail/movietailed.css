@@ -263,6 +263,13 @@ i.material-icons {
     align-items: center;
   }
 
+  .btn {
+    font-size: 12px;
+    /* padding: 10px 20px; */
+    display: block;
+    margin-top: 10px;
+  }
+
   .main-container {
     width: 90%;
   }
@@ -295,15 +302,15 @@ i.material-icons {
   }
 
   .hero {
-    height: 300px; /* Adjust as needed */
+    height: 300px;
   }
 
   .mv-single-hero {
-    height: 400px; /* Adjust as needed */
+    height: 400px;
   }
 
   .center-content {
-    margin-top: 100px; /* Adjust as needed */
+    margin-top: 100px;
   }
 
   #content_hero .container .blurb {

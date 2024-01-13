@@ -16,13 +16,13 @@
 @media only screen and (max-width: 768px) {
   .star-rating {
     display: block;
-    text-align: center;
+    /* text-align: center; */
     margin-top: 10px;
   }
 
   .star,
   .star-half,
   .star-empty {
-    font-size: 18px;
+    font-size: 24px;
   }
 }

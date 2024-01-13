@@ -166,44 +166,51 @@
 }
 
 
-
-@media only screen and (max-width: 600px) {
-	.hero-container {
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	}
-  
+@media only screen and (max-width: 1200px) {
 	.main-container {
-	  width: 100%;
-	  margin-bottom: 20px;
+	margin-top: 50px;
+	  width: 30%; 
 	}
   
 	.poster-container {
-	  width: 100%;
-	}
-  
-	.poster {
-	  width: 100%;
+	  left: 10px;
 	}
   
 	.ticket-container {
-	  width: 100%;
-	  background-color: #f9f9f9;
-	  padding: 10px;
-	  border-radius: 5px;
+	  width: 230px;
 	}
   
 	.ticket__content {
+	  position: static;
 	  text-align: center;
 	}
   
+	.ticket__movie-slogan {
+	  font-size: 0.8rem;
+	}
+  
 	.pagination {
-	  margin-top: 20px;
+	  margin-top: 10px;
+	  margin-bottom: 10px;
 	}
   
 	.pagination button {
-	  font-size: 14px;
-	  padding: 5px 10px;
+	  padding: 6px 12px;
 	}
   }
+  
+  @media only screen and (max-width: 768px) {
+	.main-container {
+	  width: 48%;
+	}
+  
+	.pagination {
+		margin-top: 20px;
+	  }
+	
+	  .pagination button {
+		font-size: 14px;
+		padding: 5px 10px;
+	  }
+  }
+  

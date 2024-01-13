@@ -69,15 +69,14 @@ const MovieDetail = () => {
               <h1>{movieDetail.title}</h1>
               <p>{movieDetail.overview}</p>
               <div class="buttons">
-                <span class="certificate">PG</span>
                 <label data-vbtype="video" class="venobox btn btn-default vbox-item" >
                   <i class="material-icons">play_arrow</i>
                   <span>Play trailer</span>
                 </label>
-                <button class="btn btn-default">
+                <label class="btn btn-default">
                   <i class="fa fa-heart" aria-hidden="true"></i>
                   Add to favorite
-                </button>
+                </label>
 
                 <div class="star-rating">
                   {movieDetail && (

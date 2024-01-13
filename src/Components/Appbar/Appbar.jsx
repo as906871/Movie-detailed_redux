@@ -7,6 +7,7 @@ import {fetchPopularMovies, fetchMovies, fetchSearchResults } from "../../redux/
 const Appbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [movieName, setMovieName] = useState("");
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -40,23 +41,25 @@ const Appbar = () => {
     dispatch(fetchSearchResults(e.target.value));
   };
 
+  const toggleNavbar = () => {
+    setIsNavbarOpen(!isNavbarOpen);
+  };
+
   return (
     <div>
       <div className={`app-bar ${isScrolled ? "scrolled" : ""}`}>
+        <div style={{justifyContent:"space-between", display:"flex"}}>
         <div className="logo" onClick={handleHome}>Akshay</div>
-        <div className="search-bar">
+        <div className="menu-toggle" onClick={toggleNavbar}>&#9776;</div>
+        </div>
+        <div className={`search-bar ${isNavbarOpen ? "open" : ""}`}>
           <p style={{ fontSize: "20px" }} onClick={handlePopularClick}>
             Popular
           </p>
           <p style={{ fontSize: "20px" }}>Top-Rated</p>
           <p style={{ fontSize: "20px" }}>Upcoming</p>
-          <input
-            type="text"
-            placeholder="Search..."
-            style={{ height: "35px", borderRadius: "10px" }}
-            value={movieName}
-            onChange={handleChange}
-          />
+          <input type="text" placeholder="Search..." style={{ height: "35px", borderRadius: "10px" }}
+            value={movieName} onChange={handleChange} />
           <button className="butt" onClick={handleSearch}>Search</button>
         </div>
       </div>
