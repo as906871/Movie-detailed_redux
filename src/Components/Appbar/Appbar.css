@@ -1,0 +1,43 @@
+.app-bar {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-size: 2.5rem; 
+    font-weight: bold;
+    text-shadow:
+    2px 2px 2px rgb(208, 255, 0),
+    3px 3px 1px rgb(255, 0, 0);
+  }
+
+  .search-bar {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .scrolled .app-bar {
+    background-color: #333;
+  }
+  .butt{
+    background-color:#0a0a23;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    height: 33px;
+    box-shadow: 0px 1px 2px 2px rgb(91, 245, 2);
+  }
+  .butt:focus {
+    outline-color: transparent;
+    outline-style:solid;
+    box-shadow: 0 0 0 4px #5a01a7;
+}

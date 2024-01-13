@@ -1,0 +1,13 @@
+.star-rating {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+
+.star,
+.star-half,
+.star-empty {
+  color: #ffea06;
+  font-size: 24px;
+}
