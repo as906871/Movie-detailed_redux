@@ -73,9 +73,8 @@ const MovieDetail = () => {
                   <i class="material-icons">play_arrow</i>
                   <span>Play trailer</span>
                 </label>
-                <label class="btn btn-default">
-                  <i class="fa fa-heart" aria-hidden="true"></i>
-                  Add to favorite
+                <label class="venobox btn btn-default vbox-item">
+                  <i class="fa fa-heart" aria-hidden="true">Add to favorite</i>
                 </label>
 
                 <div class="star-rating">
