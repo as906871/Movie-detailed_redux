@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Appbar.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {fetchPopularMovies, fetchMovies, fetchSearchResults, fetchUpcomingMovies } from "../../redux/actions/movieActions";
+import {fetchTopRatedMovies, fetchMovies, fetchSearchResults, fetchUpcomingMovies } from "../../redux/actions/movieActions";
 
 const Appbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -31,8 +31,8 @@ const Appbar = () => {
     dispatch(fetchMovies());
   };
 
-  const handlePopularClick = () => {
-    dispatch(fetchPopularMovies());
+  const handleTopRatedClick = () => {
+    dispatch(fetchTopRatedMovies());
     console.log("working");
   };
 
@@ -58,10 +58,10 @@ const Appbar = () => {
         <div className="menu-toggle" onClick={toggleNavbar}>&#9776;</div>
         </div>
         <div className={`search-bar ${isNavbarOpen ? "open" : ""}`}>
-          <p style={{ fontSize: "20px" }} onClick={handlePopularClick}>
+          <p style={{ fontSize: "20px" }} onClick={handleHome}>
             Popular
           </p>
-          <p style={{ fontSize: "20px" }}>Top-Rated</p>
+          <p style={{ fontSize: "20px" }} onClick={handleTopRatedClick}>Top-Rated</p>
           <p style={{ fontSize: "20px" }} onClick={handleUpcoming}>Upcoming</p>
           <input type="text" placeholder="Search..." style={{ height: "35px", borderRadius: "10px" }}
             value={movieName} onChange={handleChange} />

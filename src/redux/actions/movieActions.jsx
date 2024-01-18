@@ -102,8 +102,8 @@ export const fetchUpcomingMovies = () => {
 // ........................ SORT DATA BY POPULARITY..........................
 
 
-export const fetchPopularMovies = () => {
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
+export const fetchTopRatedMovies = () => {
+  const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
 
   return async (dispatch) => {
     try {
