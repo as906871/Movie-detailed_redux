@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Appbar.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {fetchPopularMovies, fetchMovies, fetchSearchResults } from "../../redux/actions/movieActions";
+import {fetchPopularMovies, fetchMovies, fetchSearchResults, fetchUpcomingMovies } from "../../redux/actions/movieActions";
 
 const Appbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,6 +45,11 @@ const Appbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   };
 
+
+  const handleUpcoming=()=>{
+    dispatch(fetchUpcomingMovies());
+    // console.log("upcoming movies is alll working fine now")
+  }
   return (
     <div>
       <div className={`app-bar ${isScrolled ? "scrolled" : ""}`}>
@@ -57,7 +62,7 @@ const Appbar = () => {
             Popular
           </p>
           <p style={{ fontSize: "20px" }}>Top-Rated</p>
-          <p style={{ fontSize: "20px" }}>Upcoming</p>
+          <p style={{ fontSize: "20px" }} onClick={handleUpcoming}>Upcoming</p>
           <input type="text" placeholder="Search..." style={{ height: "35px", borderRadius: "10px" }}
             value={movieName} onChange={handleChange} />
           <button className="butt" onClick={handleSearch}>Search</button>

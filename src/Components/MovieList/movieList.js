@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchMovies, fetchUpcomingMovies } from "../../redux/actions/movieActions";
+import { fetchMovies } from "../../redux/actions/movieActions";
 import { Link } from "react-router-dom";
 import "../../App.css";
 
@@ -13,17 +13,22 @@ const MovieList = () => {
 
   useEffect(() => {
     dispatch(fetchMovies());
-    dispatch(fetchUpcomingMovies());
   }, [dispatch]);
-
+  
   useEffect(() => {
     if (searchResults.length === 0) {
       dispatch(fetchMovies());
     }
   }, [searchResults, dispatch]);
 
+  // const moviesToDisplay =
+  //   searchResults.length > 0 ? searchResults : popularMovies;
   const moviesToDisplay =
-    searchResults.length > 0 ? searchResults : popularMovies;
+  searchResults.length > 0
+    ? searchResults
+    : upcomingMovie.length > 0
+    ? upcomingMovie
+    : popularMovies;
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -32,7 +37,7 @@ const MovieList = () => {
   const indexLast = currentPage * itemsPerPage;
   const indexFirst = indexLast - itemsPerPage;
   const currentMovies = moviesToDisplay.slice(indexFirst, indexLast);
-  console.log( "current movies",currentMovies )
+  // console.log( "current movies",currentMovies )
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -70,13 +75,15 @@ const MovieList = () => {
           </Link>
         </div>
       ))}
-       <div className="pagination">
-        {Array.from({ length: Math.ceil(moviesToDisplay.length / itemsPerPage) }, (_, index) => index + 1).map((pageNumber) => (
+      {Array.from({ length: Math.ceil(moviesToDisplay.length / itemsPerPage) }, (_, index) => index + 1).length > 1 && (
+        <div className="pagination">
+          {Array.from({ length: Math.ceil(moviesToDisplay.length / itemsPerPage) }, (_, index) => index + 1).map((pageNumber) => (
             <button key={pageNumber} onClick={() => paginate(pageNumber)} className={currentPage === pageNumber ? "active" : ""}>
               {pageNumber}
             </button>
           ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -76,21 +76,22 @@ export const fetchMovieCast = (movieId) => {
 
 // ..........................UPCOMING MOVIES .............................
 
-export const fetchUpcomingMovies = () => {
-  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`;
 
+export const fetchUpcomingMovies = () => {
+  const staticDate = '2024-01-01';
   return async (dispatch) => {
     try {
-      const response = await axios.get(url);
-      const upcomingMoviesWithBaseUrl = response.data.results.map((movie) => ({
-        ...movie,
-        backdrop_path: `${baseUrl}${movie.backdrop_path}`,
-        poster_path: `${baseUrl}${movie.poster_path}`,
-      }));
-
-      dispatch({ type: 'FETCH_UPCOMING_MOVIES_SUCCESS', payload: upcomingMoviesWithBaseUrl });
+      const response = await axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=en-US&page=1`)
+      const upcomingMoviesWithBaseUrl = response.data.results
+        .filter((movie) => movie.release_date >= staticDate)
+        .map((movie) => ({
+          ...movie,
+          backdrop_path: `${baseUrl}${movie.backdrop_path}`,
+          poster_path: `${baseUrl}${movie.poster_path}`,
+        }));
+      dispatch({ type: 'FETCH_POPULAR_MOVIES_SUCCESS', payload: upcomingMoviesWithBaseUrl });
     } catch (error) {
-      dispatch({ type: 'FETCH_UPCOMING_MOVIES_FAILURE', payload: error.message });
+      dispatch({ type: 'FETCH_POPULAR_MOVIES_SUCCESS', payload: error.message });
     }
   };
 };
