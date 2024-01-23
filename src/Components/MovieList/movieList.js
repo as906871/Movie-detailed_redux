@@ -40,6 +40,7 @@ const MovieList = () => {
   // console.log( "current movies",currentMovies )
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  console.log("paginate", paginate);
 
   return (
     <div className="hero-container">
