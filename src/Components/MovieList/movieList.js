@@ -9,11 +9,11 @@ const MovieList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
   const { popularMovies, error, upcomingMovie, searchResults } = useSelector((state) => state.movies);
-  console.log("upcoming movie", upcomingMovie);
+  // console.log("upcoming movie", upcomingMovie);
 
   useEffect(() => {
-    dispatch(fetchMovies());
-  }, [dispatch]);
+    dispatch(fetchMovies(currentPage));
+  }, [dispatch,currentPage]);
   
   useEffect(() => {
     if (searchResults.length === 0) {

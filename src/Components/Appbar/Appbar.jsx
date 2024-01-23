@@ -33,7 +33,7 @@ const Appbar = () => {
 
   const handleTopRatedClick = () => {
     dispatch(fetchTopRatedMovies());
-    console.log("working");
+    // console.log("working");
   };
 
   const handleChange = (e) => {

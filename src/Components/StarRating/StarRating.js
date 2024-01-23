@@ -3,7 +3,7 @@ import { FaStar, FaStarHalfAlt  } from 'react-icons/fa';
 import './StarRating.css';
 
 const StarRating = ({ vote_average }) => {
-    console.log("value comes", vote_average)
+    // console.log("value comes", vote_average)
   const renderStars = () => {
     const stars = [];
     const roundedRating = Math.min(Math.round(vote_average * 2) / 2, 5);
