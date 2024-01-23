@@ -9,7 +9,6 @@ const MovieList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
   const { popularMovies, error, upcomingMovie, searchResults } = useSelector((state) => state.movies);
-  // console.log("upcoming movie", upcomingMovie);
 
   useEffect(() => {
     dispatch(fetchMovies(currentPage));
@@ -21,8 +20,6 @@ const MovieList = () => {
     }
   }, [searchResults, dispatch]);
 
-  // const moviesToDisplay =
-  //   searchResults.length > 0 ? searchResults : popularMovies;
   const moviesToDisplay =
   searchResults.length > 0
     ? searchResults
@@ -34,13 +31,16 @@ const MovieList = () => {
     return <div>Error: {error}</div>;
   }
 
-  const indexLast = currentPage * itemsPerPage;
-  const indexFirst = indexLast - itemsPerPage;
-  const currentMovies = moviesToDisplay.slice(indexFirst, indexLast);
-  // console.log( "current movies",currentMovies )
+  // const indexLast = currentPage * itemsPerPage;
+  // const indexFirst = indexLast - itemsPerPage;
+  // const currentMovies = moviesToDisplay.slice(indexFirst, indexLast);
+  const currentMovies = moviesToDisplay.filter((_, index) =>
+      index >= (currentPage - 1) * itemsPerPage &&
+      index < currentPage * itemsPerPage
+  );
+  console.log("resulting", currentMovies)
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  console.log("paginate", paginate);
 
   return (
     <div className="hero-container">
@@ -76,7 +76,7 @@ const MovieList = () => {
           </Link>
         </div>
       ))}
-      {Array.from({ length: Math.ceil(moviesToDisplay.length / itemsPerPage) }, (_, index) => index + 1).length > 1 && (
+      {/* {Array.from({ length: Math.ceil(moviesToDisplay.length / itemsPerPage) }, (_, index) => index + 1).length > 1 && (
         <div className="pagination">
           {Array.from({ length: Math.ceil(moviesToDisplay.length / itemsPerPage) }, (_, index) => index + 1).map((pageNumber) => (
             <button key={pageNumber} onClick={() => paginate(pageNumber)} className={currentPage === pageNumber ? "active" : ""}>
@@ -84,7 +84,15 @@ const MovieList = () => {
             </button>
           ))}
         </div>
-      )}
+      )} */}
+       {Array.from({ length: Math.ceil(moviesToDisplay.length / itemsPerPage) },(_, index) => index + 1).length > 1 && (
+        <div className="pagination">
+          {Array.from({ length: Math.ceil(moviesToDisplay.length / itemsPerPage) },(_, index) => index + 1).map((pageNumber) => (
+            <button key={pageNumber} onClick={() => paginate(pageNumber)} className={currentPage === pageNumber ? "active" : ""}>
+              {pageNumber}
+            </button>
+          ))}
+        </div>)}
     </div>
   );
 };
